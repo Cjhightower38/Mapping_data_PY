@@ -1,6 +1,8 @@
 # Importing json module to with with the info from the file.
 import json
 
+from country_codes import get_country_code
+
 '''
 Store the downloaded json file in a variable. Open and rename the file
 as (f) then create a different variable to store the file using the 
@@ -20,5 +22,13 @@ for pop_dict in pop_data:
 	if pop_dict['Year'] == '2010':
 		country_name = pop_dict['Country Name']
 		population = int(float(pop_dict['Value']))
-		print(country_name + ': ' + str(population))
+
+# The get_country_code() is store in the variable code and printed to
+# screen if the two-digit code is found the code is returned if not the 
+# Error message is printed to screen.		
+		code = get_country_code(country_name)
+		if code:
+			print(code + ': '+ str(population))
+		else:
+			print('ERROR - ' + country_name)
 	
