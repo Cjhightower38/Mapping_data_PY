@@ -1,4 +1,5 @@
-# Importing json module to with with the info from the file.
+# Importing json module to with with the info from the file. Import
+# pygal as well as RotateStyles from pygal.style module
 import json
 
 import pygal
@@ -45,7 +46,7 @@ for pop_dict in pop_data:
 
 '''
 Group the countries into 3 population levels by creating three empty
-dictionaries and the store each item in cc_populations into a key-value
+dictionaries and then store each item in cc_populations into a key-value
 pair cc is the key and pop is the value(pay close attention to how line
 two should read.) Add if-elif-else to add the each country to it's
 correct dictionary. Print the len of each list and use wm.add() to add
@@ -63,7 +64,10 @@ for cc, pop in cc_populations.items():
 # See how many countries are in each level.
 print(len(cc_pops_1), len(cc_pops_2), len(cc_pops_3))
 
-			
+'''
+Custom colored the color scheme added the title and each population
+prospectivly then render the results to an .svg file.
+'''		
 wm_style = RotateStyle('#336699')
 wm = pygal.maps.world.World(style=wm_style)
 wm.title = 'World Population in 2010, by Country'
