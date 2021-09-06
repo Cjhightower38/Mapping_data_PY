@@ -3,7 +3,7 @@
 import json
 
 import pygal
-from pygal.style import RotateStyle
+from pygal.style import DarkColorizedStyle, RotateStyle
 
 from country_codes import get_country_code
 
@@ -66,10 +66,11 @@ print(len(cc_pops_1), len(cc_pops_2), len(cc_pops_3))
 
 '''
 Custom colored the color scheme added the title and each population
-prospectivly then render the results to an .svg file.
+prospectively then render the results to an .svg file. The hex format 
+represents RGB two digit code after the hash mark.
 '''		
-wm_style = RotateStyle('#336699')
-wm = pygal.maps.world.World(style=wm_style)
+wm_style = RotateStyle('#336699', base_style = DarkColorizedStyle)
+wm = pygal.maps.world.World(style = wm_style)
 wm.title = 'World Population in 2010, by Country'
 wm.add('0-10', cc_pops_1)
 wm.add('10m-1bn', cc_pops_2)
